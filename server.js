@@ -1,16 +1,17 @@
-import express from 'express'
-import dotenv from 'dotenv'
-import colors from 'colors'
-import morgan from 'morgan'
+import express from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import colors from 'colors';
 import connectDB from './config/db.js';
-import { notFound, errorHandler } from './middleware/errorMiddleware.js'
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
 
 dotenv.config()
 
 const app = express()
 
-app.use(express.json())
+app.use(express.json());
+app.use(cors());
 
 //All routes
 import auth from './routes/userRoutes.js';
